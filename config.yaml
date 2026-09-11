@@ -1,0 +1,73 @@
+# ============================================================
+# Automated YouTube Reaction Channel - Configuration File
+# ============================================================
+
+# API KEYS (Override with environment variables)
+api:
+  openai_key: "${OPENAI_API_KEY}"  # Will read from env var
+  elevenlabs_key: "${ELEVENLABS_API_KEY}"
+  elevenlabs_voice_id: "${ELEVENLABS_VOICE_ID}"
+
+# OpenAI Configuration
+openai:
+  model: "gpt-4o"
+  temperature: 0.7
+  max_tokens: 2000
+  response_format: "json_object"
+
+# ElevenLabs Voice Settings
+voice:
+  model_id: "eleven_multilingual_v2"
+  stability: 0.35
+  similarity_boost: 0.85
+  enable_logging: false
+
+# Avatar/Sprite Configuration
+sprites:
+  threatening: "assets/sprites/image_3.png"
+  smirking: "assets/sprites/image_4.png"
+  mischievous: "assets/sprites/image_5.png"
+  hyped: "assets/sprites/image_6.png"
+  playful: "assets/sprites/image_7.png"
+  heart_eyes: "assets/sprites/image_8.png"
+  star_eyes: "assets/sprites/image_9.png"
+
+# Avatar Display Settings
+avatar:
+  height: 380
+  position: ["right", "bottom"]
+  audio_reactivity:
+    enabled: true
+    min_volume_threshold: 0.15
+    max_scale_factor: 1.08
+
+# Video Processing
+video:
+  output_resolution: [1280, 720]
+  fps: 24
+  codec: "libx264"
+  preset: "medium"  # ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow
+  audio_bitrate: "192k"
+  video_bitrate: "5000k"
+  output_filename: "AUTOMATED_YOUTUBE_OUTPUT.mp4"
+
+# File Management
+files:
+  temp_directory: ".temp"
+  cleanup_on_exit: true
+  verbose_logging: false
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "logs/automation.log"
+  console_output: true
+  max_log_size_mb: 10
+  backup_count: 3
+
+# Script Generation
+script:
+  enable_timestamp_validation: true
+  default_scene_duration: 5.0
+  min_scene_duration: 1.0
+  max_scene_duration: 30.0
