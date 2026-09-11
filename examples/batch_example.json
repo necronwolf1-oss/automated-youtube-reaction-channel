@@ -1,0 +1,29 @@
+{
+  "videos": [
+    {
+      "media_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "topic": "Reacting to underground breakcore EDM tracks",
+      "output_path": "output_breakcore_01.mp4"
+    },
+    {
+      "media_url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+      "topic": "Reacting to weird internet lore and creepypasta",
+      "output_path": "output_creepy_01.mp4"
+    },
+    {
+      "media_url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+      "topic": "Gaming fails and speedrunning disasters compilation",
+      "output_path": "output_gaming_01.mp4"
+    },
+    {
+      "media_url": "https://www.youtube.com/watch?v=kffacxfA7g4",
+      "topic": "Reacting to AI-generated cursed content",
+      "output_path": "output_ai_01.mp4"
+    },
+    {
+      "media_url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+      "topic": "Viral TikTok trends and internet culture reaction",
+      "output_path": "output_viral_01.mp4"
+    }
+  ]
+}

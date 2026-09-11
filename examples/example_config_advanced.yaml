@@ -1,0 +1,170 @@
+# Advanced Configuration Examples
+# Copy the section you want and merge with config.yaml
+
+# ============================================================
+# EXAMPLE 1: Budget-Friendly Configuration (Minimal Cost)
+# ============================================================
+api:
+  openai_key: "${OPENAI_API_KEY}"
+  elevenlabs_key: "${ELEVENLABS_API_KEY}"
+  elevenlabs_voice_id: "${ELEVENLABS_VOICE_ID}"
+
+openai:
+  model: "gpt-3.5-turbo"    # Cheapest model
+  temperature: 0.5          # More consistent output
+  max_tokens: 1000          # Shorter scripts = less cost
+  response_format: "json_object"
+
+voice:
+  model_id: "eleven_multilingual_v2"
+  stability: 0.35
+  similarity_boost: 0.75    # Slightly lower for faster generation
+  enable_logging: false
+
+video:
+  output_resolution: [1024, 576]  # Lower res = faster rendering
+  fps: 24
+  codec: "libx264"
+  preset: "veryfast"        # Faster = less CPU time
+  audio_bitrate: "128k"     # Lower bitrate
+  video_bitrate: "2500k"    # Lower quality
+
+# ============================================================
+# EXAMPLE 2: High-Quality Configuration (Premium)
+# ============================================================
+openai:
+  model: "gpt-4o"           # Best quality scripts
+  temperature: 0.8          # More creative
+  max_tokens: 2500          # Longer, detailed scripts
+  response_format: "json_object"
+
+voice:
+  model_id: "eleven_multilingual_v2"
+  stability: 0.5            # Higher for more variation
+  similarity_boost: 0.95    # Maximum quality
+  enable_logging: true
+
+video:
+  output_resolution: [1920, 1080]  # 4K quality
+  fps: 60                    # Smooth motion
+  codec: "libx264"
+  preset: "slow"            # Better compression
+  audio_bitrate: "320k"     # High quality audio
+  video_bitrate: "8000k"    # High quality video
+
+# ============================================================
+# EXAMPLE 3: Fast Processing Configuration (Quick Tests)
+# ============================================================
+openai:
+  model: "gpt-3.5-turbo"
+  temperature: 0.5
+  max_tokens: 800
+  response_format: "json_object"
+
+voice:
+  model_id: "eleven_multilingual_v2"
+  stability: 0.35
+  similarity_boost: 0.7
+  enable_logging: false
+
+video:
+  output_resolution: [640, 360]   # Low res for speed
+  fps: 12                          # Lower FPS
+  codec: "libx264"
+  preset: "ultrafast"             # Maximum speed
+  audio_bitrate: "96k"
+  video_bitrate: "1000k"
+
+script:
+  enable_timestamp_validation: true
+  default_scene_duration: 3.0      # Shorter scenes
+  min_scene_duration: 1.0
+  max_scene_duration: 10.0         # Shorter max
+
+# ============================================================
+# EXAMPLE 4: YouTube Ready Configuration
+# ============================================================
+video:
+  output_resolution: [1920, 1080]  # YouTube standard
+  fps: 30                           # YouTube standard
+  codec: "libx264"
+  preset: "medium"                 # Good balance
+  audio_bitrate: "256k"            # YouTube quality
+  video_bitrate: "6000k"           # YouTube bitrate
+  output_filename: "youtube_ready.mp4"
+
+avatar:
+  height: 480                       # Larger avatar
+  position: ["right", "bottom"]
+  audio_reactivity:
+    enabled: true
+    min_volume_threshold: 0.1
+    max_scale_factor: 1.15         # More dramatic reactions
+
+# ============================================================
+# EXAMPLE 5: Multiple Voice Styles (Rotating)
+# ============================================================
+voice:
+  models:
+    narrator: "eleven_multilingual_v2"
+    energetic: "eleven_multilingual_v2"
+    calm: "eleven_multilingual_v2"
+  
+  narrator_settings:
+    stability: 0.4
+    similarity_boost: 0.8
+  
+  energetic_settings:
+    stability: 0.2
+    similarity_boost: 0.9
+  
+  calm_settings:
+    stability: 0.6
+    similarity_boost: 0.7
+
+# ============================================================
+# EXAMPLE 6: Debug/Development Configuration
+# ============================================================
+logging:
+  level: "DEBUG"             # Maximum verbosity
+  log_file: "logs/debug.log"
+  console_output: true
+  max_log_size_mb: 50        # Large log files
+  backup_count: 10           # Keep many backups
+
+files:
+  temp_directory: ".temp"
+  cleanup_on_exit: false     # Keep temp files for inspection
+  verbose_logging: true
+
+script:
+  enable_timestamp_validation: true
+  default_scene_duration: 5.0
+  min_scene_duration: 1.0
+  max_scene_duration: 30.0
+
+# ============================================================
+# EXAMPLE 7: Batch Processing Configuration
+# ============================================================
+video:
+  output_resolution: [1280, 720]   # Good balance
+  fps: 24
+  codec: "libx264"
+  preset: "fast"                   # Reasonable speed
+  audio_bitrate: "192k"
+  video_bitrate: "4000k"
+  output_filename: "batch_{timestamp}.mp4"  # Dynamic names
+
+files:
+  temp_directory: ".temp/batch"
+  cleanup_on_exit: true            # Auto cleanup after each
+  verbose_logging: false
+
+# ============================================================
+# How to Use These Examples:
+# ============================================================
+# 1. Copy relevant section from above
+# 2. Merge with your existing config.yaml
+# 3. Update file paths if needed
+# 4. Test with: python3 -c "from config import get_config; get_config()"
+# 5. Run: python3 main.py
